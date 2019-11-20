@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 20:20:27 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 20:43:50 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,19 +23,15 @@ static int	parse_format(const char *format, t_env *env)
 	int len;
 
 	len = 1;
-	if (*format != '%')
+	while (*format != '%')
 	{
 		write(1, format, 1);
 		env->len++;
-		return (1);
+		format++;
 	}
-	else
-	{
-		write(1, format, 1);
-		env->len++;
-		return (1);
-	}
-	
+	if (*format == '%')
+		len += 2;
+	printf();
 	return (len);
 }
 
@@ -45,7 +41,13 @@ int			ft_printf(const char *format, ...)
 	t_env	env;
 
 	va_start(args, format);
-	printf("env->args = %p\n", env.args);
+	while (*format)
+	{
+		format += parse_format(format, &env);
+		va_arg(args, char*);
+		printf("%s\n", args);
+		env.len += strlen(args);
+	}
 	va_end(args);
 	return (env.len);
 }
