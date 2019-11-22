@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 15:46:07 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/22 19:31:34 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,26 +30,13 @@ int		ft_printf(const char *format, ...)
 	t_env	env;
 
 	va_start(ap, format);
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			env.len += parse_format(format);
-			format += 2 + env.arg.nbflags;
-		}
-		else
-		{
-			printf("%c", *format);
-			env.len++;
-		}
-		format++;
-	}
+	env.arg.type = 'c';
 	va_end(ap);
 	return (env.len);
 }
 
 int		main(void)
 {
-	ft_printf("Hello %s :) %s", "Ben", "abon");
+	ft_printf("Hello %s :)", "Ben");
 	return (0);
 }

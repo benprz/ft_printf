@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 15:45:54 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/22 15:51:10 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,7 @@ typedef struct	s_args
 {
 	void		*arg;
 	char		type;
-	short		nbflags;
+	short		nb_flags;
 }				t_args;
 
 typedef struct	s_env
