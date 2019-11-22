@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/20 20:43:50 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/22 15:46:07 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,42 +18,38 @@
 #include <string.h>
 #include <unistd.h>
 
-static int	parse_format(const char *format, t_env *env)
+void	ft_putstr(const char *s)
 {
-	int len;
-
-	len = 1;
-	while (*format != '%')
-	{
-		write(1, format, 1);
-		env->len++;
-		format++;
-	}
-	if (*format == '%')
-		len += 2;
-	printf();
-	return (len);
+	while (*s)
+		write(1, s++, 1);
 }
 
-int			ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
-	va_list args;
+	va_list ap;
 	t_env	env;
 
-	va_start(args, format);
+	va_start(ap, format);
 	while (*format)
 	{
-		format += parse_format(format, &env);
-		va_arg(args, char*);
-		printf("%s\n", args);
-		env.len += strlen(args);
+		if (*format == '%')
+		{
+			env.len += parse_format(format);
+			format += 2 + env.arg.nbflags;
+		}
+		else
+		{
+			printf("%c", *format);
+			env.len++;
+		}
+		format++;
 	}
-	va_end(args);
+	va_end(ap);
 	return (env.len);
 }
 
-int			main(void)
+int		main(void)
 {
-	printf("\nlen = %d\n", ft_printf("Hello %s :)", "Ben"));
+	ft_printf("Hello %s :) %s", "Ben", "abon");
 	return (0);
 }
