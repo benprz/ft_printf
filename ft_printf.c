@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 19:31:34 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 23:27:01 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,21 +18,30 @@
 #include <string.h>
 #include <unistd.h>
 
-void	ft_putstr(const char *s)
+int		parse_format(char *format, va_list *args)
 {
-	while (*s)
-		write(1, s++, 1);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format += parse_arg(format, )
+		}
+		else
+			printf("%c", *format);
+		format++;
+	}
+	return (0);
 }
 
 int		ft_printf(const char *format, ...)
 {
-	va_list ap;
-	t_env	env;
+	va_list args;
+	//t_env	env;
 
-	va_start(ap, format);
-	env.arg.type = 'c';
-	va_end(ap);
-	return (env.len);
+	va_start(args, format);
+	parse_format(format, &args);
+	va_end(args);
+	return (0);
 }
 
 int		main(void)
