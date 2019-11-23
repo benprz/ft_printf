@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 23:27:01 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 23:36:21 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,13 +18,29 @@
 #include <string.h>
 #include <unistd.h>
 
-int		parse_format(char *format, va_list *args)
+void	parse_arg(char type, va_list args)
+{
+	unsigned char c;
+
+	if (type == c)
+	{
+		c = (unsigned char)va_arg(args, int);
+		printf("%c", c);
+	}
+	else if (type == s)
+	{
+		
+	}
+}
+
+int		parse_format(char *format, va_list args)
 {
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			format += parse_arg(format, )
+			format++;
+			parse_arg(*format, args);
 		}
 		else
 			printf("%c", *format);
@@ -39,7 +55,7 @@ int		ft_printf(const char *format, ...)
 	//t_env	env;
 
 	va_start(args, format);
-	parse_format(format, &args);
+	parse_format(format, args);
 	va_end(args);
 	return (0);
 }
