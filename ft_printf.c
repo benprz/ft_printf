@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/24 12:37:45 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/24 14:56:53 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -87,11 +87,12 @@ int		ft_printf(const char *format, ...)
 int		main(void)
 {
 	int c;
-	char *line;
 
-	line = calloc(1, 1);
 	printf("[");
-	printf("]\n# len = [%d]\n", ft_printf("Hello %p and %p :)", &c, line));
-	printf("line = %p = %lu\nc = %p = %lu\n", line, line, &c, &c);
+	printf("]\n# len = [%d]\n", ft_printf("Hello %p :)", &c));
+
+	printf("\n########################\n");
+	printf("[%0*d]", 4, 500);
+	printf("\n########################\n");
 	return (0);
 }
