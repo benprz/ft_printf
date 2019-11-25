@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 15:51:10 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 12:37:56 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,8 +14,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define PRINT(str) ft_putendl(str);
-
+/*
 typedef struct	s_args
 {
 	void		*arg;
@@ -28,7 +27,16 @@ typedef struct	s_env
 	t_args		arg;
 	int			len;
 }				t_env;
+*/
 
-void			ft_putendl(const char *str);
+enum e_flags {
+	MINUS = 0,
+	PLUS = 0,
+	ZERO = 0,
+	SPACE = 0,
+	SHARP = 0,
+	POINT = 0,
+	WILDCARD = 0
+};
 
 #endif

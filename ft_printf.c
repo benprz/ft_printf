@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/24 14:56:53 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 11:01:47 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,36 +19,14 @@
 #include <string.h>
 #include <unistd.h>
 
-int		parse_arg(char type, va_list args)
+int		parse_arg(const char *format, va_list args, int len)
 {
-	unsigned char	c;
-	char			*s;
-	void			*p;
+	enum e_flags	flags;
+	int 			witdth;
+	int				size;
+	char			type;
 
-	if (type == 'c')
-	{
-		c = (unsigned char)va_arg(args, int);
-		printf("%c", c);
-		return (1);
-	}
-	else if (type == 's')
-	{
-		s = va_arg(args, char*);
-		printf("%s", s);
-		return (strlen(s));
-	}
-	else if (type == 'p')
-	{
-		p = va_arg(args, void*);
-		printf("%lu || %p", p, p);
-		return (14);
-	}
-	else if (type == '%')
-	{
-		printf("%%");
-		return (1);
-	}
-	return (-1);
+	return (0);
 }
 
 int		parse_format(const char *format, va_list args)
@@ -56,12 +34,12 @@ int		parse_format(const char *format, va_list args)
 	int len;
 
 	len = 0;
-	while (*format)
+	while (*format && len != -1)
 	{
 		if (*format == '%')
 		{
 			format++;
-			len += parse_arg(*format, args);
+			len = parse_arg(format, args, len);
 		}
 		else
 		{
@@ -89,10 +67,10 @@ int		main(void)
 	int c;
 
 	printf("[");
-	printf("]\n# len = [%d]\n", ft_printf("Hello %p :)", &c));
+	//printf("]\n# len = [%d]\n", ft_printf("%X", 42949672));
 
 	printf("\n########################\n");
-	printf("[%0*d]", 4, 500);
+	printf("[%*.*f]", 10, 5, 10.12);
 	printf("\n########################\n");
 	return (0);
 }
