@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 19:12:31 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 20:32:44 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,8 @@ enum				e_flags
 	_zero,
 	//_blank,
 	//_sharp,
-	_wildcard,
+	_wildcard_width,
+	_wildcard_size,
 	_nbflags
 };
 
@@ -63,6 +64,7 @@ const char			g_flag_directives[_nbflags] = {
 	'0',
 	//' ',
 	//'#',
+	'*',
 	'*'
 };
 

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 19:28:03 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 20:47:12 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,15 +30,18 @@ int		is_type(const char c)
 	return (i < _nbtypes);
 }
 
-int		has_flag(const char c, int flags[])
+int		has_flag(const char c, const char next, int flags[])
 {
 	int i;
 
 	i = 0;
+	printf("<c = %c | next = %c>", c, next);
 	while (i < _nbflags)
 	{
 		if (g_flag_directives[i] == c)
+		{
 			return ((flags[i] = 1));
+		}
 		i++;
 	}
 	return (0);
@@ -51,7 +54,7 @@ void	init_flags(const char **format, t_args *arg)
 	i = 0;
 	while (i < _nbflags)
 		arg->flags[i++] = 0;
-	while (has_flag(**format, arg->flags))
+	while (has_flag(**format, *(*format + 1), arg->flags))
 		(*format)++;
 }
 
