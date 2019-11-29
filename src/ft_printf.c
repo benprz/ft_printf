@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 19:21:13 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:07:23 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -115,8 +115,11 @@ int		parse_arg(const char **format, va_list ap, int len)
 	{
 		if ((arg.type = is_type(**format)) != ERROR)
 		{
-			len += g_types_conversion_function[arg.type](ap);
-			return (len);
+			if ((arg.output = g_types_conversion_function[arg.type](ap)))
+			{
+				printf("%s", arg.output);
+				return (len);
+			}
 		}
 	}
 	return (ERROR);
@@ -150,18 +153,4 @@ int		ft_printf(const char *format, ...)
 	len = parse_format(format, ap);
 	va_end(ap);
 	return (len);
-}
-
-int		main(void)
-{
-	int c;
-
-	printf("[");
-	printf("]\n# len = [%d]\n", ft_printf("Hello %-010.*c", 9, 'b'));
-
-	printf("\n\n########################\nprintf()");
-	//printf("[%.f]", -15, 5.156483451534);
-	printf("[%15.2f]", 1.0);
-	printf("\n########################\n");
-	return (0);
 }

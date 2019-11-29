@@ -6,16 +6,16 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 19:29:41 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 19:33:24 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 15:33:16 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
+#include "libft.h"
 
-int     convert_int(va_list ap)
+#include <stdarg.h>
+
+void	*convert_int(va_list ap)
 {
-    printf("%d", va_arg(ap, int));
-    return (1);
+    return (ft_itoa(va_arg(ap, int)));
 }

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 19:30:06 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 14:48:49 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 # define FT_PRINTF_H
 
 # define ERROR -1
-#include <stdarg.h>
+# include <stdarg.h>
 
 enum				e_types
 {
@@ -41,23 +41,23 @@ const char			g_types_conversion_char[_nbtypes] = {
 	'p'
 };
 
-int		convert_char(va_list ap);
-int		convert_int(va_list ap);
-//void	convert_unsigned(va_list ap);
-//void	convert_hexa(va_list ap);
+void	*convert_char(va_list ap);
+void	*convert_int(va_list ap);
+void	*convert_unsigned(va_list ap);
+void	*convert_hexa(va_list ap);
 //void	convert_hexa_upper(va_list ap);
-//void	convert_string(va_list ap);
-//void	convert_pointer(va_list ap);
+void	*convert_string(va_list ap);
+void	*convert_pointer(va_list ap);
 
-int					(*g_types_conversion_function[_nbtypes])(va_list) = {
+void				*(*g_types_conversion_function[_nbtypes])(va_list) = {
 	convert_char,
 	convert_int,
-	convert_int
-	//convert_unsigned,
-	//convert_hexa,
-	//convert_hexa,
-	//convert_string,
-	//convert_pointer
+	convert_int,
+	convert_unsigned,
+	convert_hexa,
+	convert_hexa,
+	convert_string,
+	convert_pointer
 };
 
 enum				e_flags
@@ -84,6 +84,7 @@ typedef struct		s_args
 	int				width;
 	int				size;
 	int				type;
+	void			*output;
 }					t_args;
 
 #endif
