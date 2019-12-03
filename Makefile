@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/03 16:40:56 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/03 16:52:04 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -90,7 +90,7 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 
-debug: $(INC_DIR)
+debug: $(NAME) $(INC_DIR)
 	gcc -Wall -Wextra DEBUG.c $(NAME)
 
 re: fclean all
