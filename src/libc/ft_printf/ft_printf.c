@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 17:57:37 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 20:30:09 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,22 +60,6 @@ void	print_flags(t_args *arg)
 	printf("<width = %d>\n<size = %d>\n", arg->width, arg->size);
 }
 
-int		is_type(const char c)
-{
-	int i;
-
-	i = 0;
-	while (i < _nbtypes && g_types_conversion_char[i] != c)
-		i++;
-	return (i < _nbtypes ? i : ERROR);
-}
-
-void	skip_digit(const char **format)
-{
-	while (ft_isdigit(**format))
-		(*format)++;
-}
-
 void	get_precision_size(const char **format, t_args *arg)
 {
 	(*format)++;
@@ -84,7 +68,7 @@ void	get_precision_size(const char **format, t_args *arg)
 	else
 	{
 		arg->size = ft_atoi(*format);
-		skip_digit(format);
+		ft_skip_digit(format);
 		(*format)--;
 	}
 }
@@ -96,7 +80,7 @@ int		has_flag(const char **format, t_args *arg)
 	if (ft_isdigit(**format) && **format != g_flags_directive[_zero])
 	{
 		arg->width = ft_atoi(*format);
-		skip_digit(format);
+		ft_skip_digit(format);
 	}
 	i = 0;
 	while (i < _nbflags)
@@ -132,43 +116,6 @@ int		init_flags(const char **format, t_args *arg, va_list ap)
 	return (1);
 }
 
-int		parse_arg(const char **format, va_list ap, int len)
-{
-	t_args	arg;
-
-	(*format)++;
-	if (init_flags(&(*format), &arg, ap) != ERROR)
-	{
-		if ((arg.type = is_type(**format)) != ERROR)
-		{
-			if ((arg.output = g_types_conversion_function[arg.type](ap)))
-			{
-				printf("%s", arg.output);
-				return (len);
-			}
-		}
-	}
-	return (ERROR);
-}
-
-int		parse_format(const char *format, va_list ap)
-{
-	int len;
-
-	len = 0;
-	while (*format && len != ERROR)
-	{
-		if (*format == '%')
-			len = parse_arg(&format, ap, len);
-		else
-		{
-			printf("%c", *format);
-			len++;
-		}
-		format++;
-	}
-	return (len);
-}
 
 int		ft_printf(const char *format, ...)
 {

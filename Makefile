@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/03 17:57:17 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/03 18:30:44 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -63,6 +63,7 @@ SRC =	ft_free_2d.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
 		ft_putstr_fd.c\
+		ft_skip_digit.c\
 		ft_split.c\
 		ft_strclen.c\
 		ft_strjoin.c\

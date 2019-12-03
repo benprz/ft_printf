@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 13:31:41 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:53:41 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 18:31:36 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,5 +59,7 @@ void	ft_putnbr_fd(const int n, const int fd);
 
 int		ft_atoi(const char *str);
 char	*ft_itoa(const int n);
+
+void	ft_skip_digit(const char **format);
 
 #endif
