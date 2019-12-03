@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:38:33 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 17:57:37 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,36 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+
+const char			g_types_conversion_char[_nbtypes] = {
+	'c',
+	'd',
+	'i',
+	'u',
+	'x',
+	'X',
+	's',
+	'p'
+};
+
+void				*(*g_types_conversion_function[_nbtypes])(va_list) = {
+	convert_char,
+	convert_int,
+	convert_int,
+	convert_unsigned,
+	convert_hexa,
+	convert_hexa,
+	convert_string,
+	convert_pointer
+};
+
+const char			g_flags_directive[_nbflags] = {
+	'-',
+	'0',
+	'*',
+	'.',
+	'*'
+};
 
 void	print_flags(t_args *arg)
 {

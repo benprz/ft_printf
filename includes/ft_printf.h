@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:30:25 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 17:54:16 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,16 +33,7 @@ enum				e_types
 	_nbtypes
 };
 
-const char			g_types_conversion_char[_nbtypes] = {
-	'c',
-	'd',
-	'i',
-	'u',
-	'x',
-	'X',
-	's',
-	'p'
-};
+extern const char	g_types_conversion_char[_nbtypes];
 
 void				*convert_char(va_list ap);
 void				*convert_int(va_list ap);
@@ -52,16 +43,7 @@ void				*convert_hexa(va_list ap);
 void				*convert_string(va_list ap);
 void				*convert_pointer(va_list ap);
 
-void				*(*g_types_conversion_function[_nbtypes])(va_list) = {
-	convert_char,
-	convert_int,
-	convert_int,
-	convert_unsigned,
-	convert_hexa,
-	convert_hexa,
-	convert_string,
-	convert_pointer
-};
+extern void			*(*g_types_conversion_function[_nbtypes])(va_list);
 
 enum				e_flags
 {
@@ -73,13 +55,7 @@ enum				e_flags
 	_nbflags
 };
 
-const char			g_flags_directive[_nbflags] = {
-	'-',
-	'0',
-	'*',
-	'.',
-	'*'
-};
+extern const char	g_flags_directive[_nbflags];
 
 typedef struct		s_args
 {

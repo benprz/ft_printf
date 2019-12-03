@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/03 16:52:04 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/03 17:57:17 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -75,7 +75,7 @@ OBJ = $(SRC:%.c=$(OBJ_DIR)%.o)
 
 .PHONY: all clean fclean re debug
 
-all: $(NAME)
+all: $(NAME) debug
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INC_DIR)
 	@mkdir -p $(@D)
@@ -89,8 +89,9 @@ clean:
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	/bin/rm -f a.out
 
-debug: $(NAME) $(INC_DIR)
-	gcc -Wall -Wextra DEBUG.c $(NAME)
+debug: $(NAME)
+	gcc -Wall -Wextra -I $(INC_DIR) main.c $(NAME) && ./a.out
 
 re: fclean all
