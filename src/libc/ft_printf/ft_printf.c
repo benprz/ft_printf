@@ -6,19 +6,15 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:07:23 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 16:38:33 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-#include <ctype.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
 
 void	print_flags(t_args *arg)
 {
@@ -46,7 +42,7 @@ int		is_type(const char c)
 
 void	skip_digit(const char **format)
 {
-	while (isdigit(**format))
+	while (ft_isdigit(**format))
 		(*format)++;
 }
 
@@ -57,7 +53,7 @@ void	get_precision_size(const char **format, t_args *arg)
 		arg->flags[_wildcard_size] = 1;
 	else
 	{
-		arg->size = atoi(*format);
+		arg->size = ft_atoi(*format);
 		skip_digit(format);
 		(*format)--;
 	}
@@ -67,9 +63,9 @@ int		has_flag(const char **format, t_args *arg)
 {
 	int i;
 
-	if (isdigit(**format) && **format != g_flags_directive[_zero])
+	if (ft_isdigit(**format) && **format != g_flags_directive[_zero])
 	{
-		arg->width = atoi(*format);
+		arg->width = ft_atoi(*format);
 		skip_digit(format);
 	}
 	i = 0;

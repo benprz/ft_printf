@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 13:31:41 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 19:38:00 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 16:12:32 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,10 @@
 # define LIBFT_H
 
 # include <stddef.h>
+
+# ifndef FT_PRINTF_H
+#  include "ft_printf.h"
+# endif
 
 void	*ft_memset(void *ptr, const int c, size_t len);
 void	ft_bzero(void *ptr, const size_t len);
