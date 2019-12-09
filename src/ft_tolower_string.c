@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_hexa_uppercase.c                         .::    .:/ .      .::   */
+/*   ft_tolower_string.c                              .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/06 19:09:42 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 17:34:08 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/09 17:46:34 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/09 17:56:06 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdarg.h>
-
-char	*convert_hexa_uppercase(va_list ap)
+char	*ft_tolower_string(char *str)
 {
-	return (ft_int2hex(va_arg(ap, unsigned int)));
+	int i;
+
+	i = 0;
+	if (str)
+	{
+		while (str[i])
+		{
+			str[i] = ft_tolower(str[i]);
+			i++;
+		}
+	}
+	return (str);
 }

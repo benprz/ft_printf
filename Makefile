@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 14:18:33 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 17:56:41 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -63,6 +63,7 @@ SRC_LIBC =	ft_atoi.c\
 SRC =	ft_dtoa.c\
 		ft_free_2d.c\
 		ft_itoa.c\
+		ft_int2hex.c\
 		ft_putchar_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
@@ -74,6 +75,7 @@ SRC =	ft_dtoa.c\
 		ft_strmapi.c\
 		ft_strtrim.c\
 		ft_substr.c\
+		ft_tolower_string.c\
 		ft_udtoa.c\
 		$(addprefix $(LIBC_DIR),$(SRC_LIBC))
 

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 16:03:38 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 17:23:28 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 17:44:08 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,10 +23,13 @@
 int main()
 {
 	printf("##############################\n");
-	printf("printf: []\n");
+	printf("printf: [%d]\n", ft_int2hex);
+	printf("printf: [%X]\n", ft_int2hex);
+	printf("printf: [%p]\n", ft_int2hex);
 	printf("##############################\n");
-
-	ft_printf("ft_printf: [%d]\n", 123456);
+	ft_printf("ft_printf: [%d]\n", ft_int2hex);
+	ft_printf("ft_printf: [%X]\n", ft_int2hex);
+	ft_printf("ft_printf: [%p]\n", ft_int2hex);
 	printf("##############################\n");
 	return (0);
 }

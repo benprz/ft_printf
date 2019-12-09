@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 13:31:41 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 11:20:11 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 17:57:05 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -61,7 +61,9 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(const int n);
 char	*ft_dtoa(const long long n);
 char	*ft_udtoa(unsigned long long n);
+char	*ft_int2hex(unsigned long n);
 
 void	ft_skip_digit(const char **format);
+char	*ft_tolower_string(char *str);
 
 #endif

@@ -1,21 +1,45 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_hexa_uppercase.c                         .::    .:/ .      .::   */
+/*   ft_int2hex.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/06 19:09:42 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 17:34:08 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/09 15:29:45 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/09 16:58:15 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-#include <stdarg.h>
-
-char	*convert_hexa_uppercase(va_list ap)
+short	count_chars(unsigned long n)
 {
-	return (ft_int2hex(va_arg(ap, unsigned int)));
+	int len;
+
+	len = 1;
+	while ((n /= 16))
+		len++;
+	return (len);
+}
+
+char	*ft_int2hex(unsigned long n)
+{
+	char 	*str;
+	short	len;
+
+	len = count_chars(n);
+	if ((str = (char *)malloc(sizeof(char) * (len + 1))))
+	{
+		str[len] = '\0';
+		while (len--)
+		{
+			if (n % 16 >= 10)
+				str[len] = 'A' + (n % 16 - 10);
+			else
+				str[len] = '0' + n % 16;
+			n /= 16;
+		}
+	}
+	return (str);
 }
