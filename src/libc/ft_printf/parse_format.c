@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 18:12:40 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 17:56:41 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 14:00:14 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,18 +24,18 @@ void	print_flags(t_args *arg)
 	printf("\n");
 	while (i < _nbflags)
 	{
-		printf("<flags[%c] = %d>\n", g_flags_directive[i], arg->flags[i]);
+		printf("<flags[%c] = %d>\n", g_flags[i], arg->flags.byte[i]);
 		i++;
 	}
 	printf("<width = %d>\n<size = %d>\n", arg->width, arg->size);
 }
 
-int		is_type(const char c)
+int		check_type(const char c)
 {
 	int i;
 
 	i = 0;
-	while (i < _nbtypes && g_types_conversion_char[i] != c)
+	while (i < _nbtypes && g_conversion_types[i] != c)
 		i++;
 	return (i < _nbtypes ? i : ERROR);
 }
@@ -47,9 +47,9 @@ int		parse_arg(const char **format, va_list ap, int len)
 	(*format)++;
 	if (init_flags(&(*format), &arg, ap) != ERROR)
 	{
-		if ((arg.type = is_type(**format)) != ERROR)
+		if ((arg.type = check_type(**format)) != ERROR)
 		{
-			if ((arg.output = g_types_conversion_function[arg.type](ap)))
+			if ((arg.output = g_conversion_functions[arg.type](ap)))
 			{
 				printf("%s", arg.output);
 				free(arg.output);

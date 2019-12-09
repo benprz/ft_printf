@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_uitoa.c                                       .::    .:/ .      .::   */
+/*   ft_udtoa.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/06 18:36:36 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 18:53:54 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/09 11:04:48 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/09 11:18:03 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-static short	count_chars(int n)
+static short	count_chars(unsigned long long n)
 {
 	short len;
 
@@ -23,32 +23,20 @@ static short	count_chars(int n)
 	return (len);
 }
 
-char			*ft_uitoa(const int n)
+char			*ft_udtoa(unsigned long long n)
 {
-	char			*str;
-    long			n2;
-	short			len;
-	short			neg;
+	char				*str;
+	short				len;
 
 	len = count_chars(n);
-	n2 = n < 0 ? (unsigned int)-n : (unsigned int)n;
-	neg = n < 0;
-	if ((str = (char *)ft_calloc(len + neg + 1, sizeof(char))))
+	if ((str = (char *)malloc((len + 1) * sizeof(char))))
 	{
+		str[len] = '\0';
 		while (len--)
 		{
-			str[len + neg] = n2 % 10 + '0';
-			n2 /= 10;
+			str[len] = n % 10 + '0';
+			n /= 10;
 		}
-		if (neg)
-			*str = '-';
 	}
 	return (str);
-}
-
-#include <stdio.h>
-
-int main(void)
-{
-	printf("%u\n", ft_uitoa(10));
 }

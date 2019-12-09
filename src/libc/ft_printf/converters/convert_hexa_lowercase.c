@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 12:12:04 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 19:21:33 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 14:07:20 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,8 @@
 
 #include <stdarg.h>
 
-int     convert_hexa_lowercase(va_list ap)
+char	*convert_hexa_lowercase(va_list ap)
 {
-	return (ft_tolower_string(g_types_conversion_function[_hexa_lowercase]));
+	//return (ft_tolower_string(g_conversion_functions[_hexa_uppercase](ap));
+	return (NULL);
 }

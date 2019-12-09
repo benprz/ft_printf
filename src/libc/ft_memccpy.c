@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 14:54:47 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:57:29 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 14:27:56 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,7 @@ void	*ft_memccpy(void *dst, const void *src, const int c, const size_t len)
 		{
 			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 			if (((unsigned char *)src)[i] == (unsigned char)c)
-				return (dst + i + 1);
+				return ((void *)((char *)dst + i + 1));
 			i++;
 		}
 	}

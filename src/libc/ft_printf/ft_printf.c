@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 19:08:44 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 14:13:53 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 #include <stdarg.h>
 
-const char			g_types_conversion_char[_nbtypes] = {
+const char			g_conversion_types[_nbtypes] = {
 	'c',
 	'd',
 	'i',
@@ -26,7 +26,7 @@ const char			g_types_conversion_char[_nbtypes] = {
 	'p'
 };
 
-void				*(*g_types_conversion_function[_nbtypes])(va_list) = {
+char				*(*g_conversion_functions[_nbtypes])(va_list) = {
 	convert_char,
 	convert_int,
 	convert_int,
@@ -37,7 +37,7 @@ void				*(*g_types_conversion_function[_nbtypes])(va_list) = {
 	convert_pointer
 };
 
-const char			g_flags_directive[_nbflags] = {
+const char			g_flags[_nbflags] = {
 	'-',
 	'0',
 	'*',

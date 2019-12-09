@@ -1,31 +1,48 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_pointer.c                                .::    .:/ .      .::   */
+/*   ft_dtoa.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 12:23:12 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 13:54:00 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/06 18:36:36 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/09 11:18:56 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-#include <stdarg.h>
 #include <stdlib.h>
 
-char	*convert_pointer(va_list ap)
+static short	count_chars(long long n)
 {
-	char	*hex;
-	char	*output;
+	short len;
 
-	output = NULL;
-	if ((hex = g_conversion_functions[_hexa_uppercase](ap)))
+	len = 1;
+	while ((n /= 10))
+		len++;
+	return (len);
+}
+
+char			*ft_dtoa(const long long n)
+{
+	char				*str;
+	unsigned long long	n2;
+	short				len;
+	short				neg;
+
+	len = count_chars(n);
+	neg = n < 0;
+	n2 = neg ? (unsigned long long)-n : (unsigned long long)n;
+	if ((str = (char *)malloc((len + neg + 1) * sizeof(char))))
 	{
-		output = ft_strjoin("0x", hex);
-		free(hex);
+		str[len + neg] = '\0';
+		while (len--)
+		{
+			str[len + neg] = n2 % 10 + '0';
+			n2 /= 10;
+		}
+		if (neg)
+			str[0] = '-';
 	}
-    return (output);
+	return (str);
 }

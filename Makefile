@@ -6,14 +6,14 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/06 17:20:13 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 14:18:33 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -pedantic
 
 INC_DIR = includes/
 SRC_DIR = src/
@@ -26,7 +26,8 @@ SRC_FT_PRINTF =	ft_printf.c\
 				converters/convert_char.c\
 				converters/convert_int.c\
 				converters/convert_unsigned.c\
-				converters/convert_hexa.c\
+				converters/convert_hexa_uppercase.c\
+				converters/convert_hexa_lowercase.c\
 				converters/convert_string.c\
 				converters/convert_pointer.c
 
@@ -59,7 +60,8 @@ SRC_LIBC =	ft_atoi.c\
 			ft_toupper.c\
 			$(addprefix $(FT_PRINTF_DIR),$(SRC_FT_PRINTF))
 
-SRC =	ft_free_2d.c\
+SRC =	ft_dtoa.c\
+		ft_free_2d.c\
 		ft_itoa.c\
 		ft_putchar_fd.c\
 		ft_putendl_fd.c\
@@ -72,6 +74,7 @@ SRC =	ft_free_2d.c\
 		ft_strmapi.c\
 		ft_strtrim.c\
 		ft_substr.c\
+		ft_udtoa.c\
 		$(addprefix $(LIBC_DIR),$(SRC_LIBC))
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)%.o)
@@ -95,6 +98,6 @@ fclean: clean
 	/bin/rm -f a.out
 
 debug: $(NAME)
-	gcc -Wall -Wextra -I $(INC_DIR) main.c $(NAME) && ./a.out
+	gcc -Wall -Wextra -pedantic -I $(INC_DIR) main.c $(NAME) && ./a.out
 
 re: fclean all
