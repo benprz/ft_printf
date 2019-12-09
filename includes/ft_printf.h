@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 18:29:06 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 19:18:45 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,11 +15,7 @@
 # define FT_PRINTF_H
 
 # define ERROR -1
-
 # include <stdarg.h>
-
-int					ft_printf(const char *format, ...);
-int					parse_format(const char *format, va_list ap);
 
 enum				e_types
 {
@@ -34,18 +30,6 @@ enum				e_types
 	_nbtypes
 };
 
-extern const char	g_types_conversion_char[_nbtypes];
-
-void				*convert_char(va_list ap);
-void				*convert_int(va_list ap);
-void				*convert_unsigned(va_list ap);
-void				*convert_hexa(va_list ap);
-//void				convert_hexa_upper(va_list ap);
-void				*convert_string(va_list ap);
-void				*convert_pointer(va_list ap);
-
-extern void			*(*g_types_conversion_function[_nbtypes])(va_list);
-
 enum				e_flags
 {
 	_minus,
@@ -56,8 +40,6 @@ enum				e_flags
 	_nbflags
 };
 
-extern const char	g_flags_directive[_nbflags];
-
 typedef struct		s_args
 {
 	int				flags[_nbflags];
@@ -66,5 +48,21 @@ typedef struct		s_args
 	int				type;
 	void			*output;
 }					t_args;
+
+extern const char	g_types_conversion_char[_nbtypes];
+extern const char	g_flags_directive[_nbflags];
+extern void			*(*g_types_conversion_function[_nbtypes])(va_list);
+
+int					ft_printf(const char *format, ...);
+int					parse_format(const char *format, va_list ap);
+int					init_flags(const char **format, t_args *arg, va_list ap);
+
+void				*convert_char(va_list ap);
+void				*convert_int(va_list ap);
+void				*convert_unsigned(va_list ap);
+void				*convert_hexa_lowercase(va_list ap);
+void				*convert_hexa_uppercase(va_list ap);
+void				*convert_string(va_list ap);
+void				*convert_pointer(va_list ap);
 
 #endif

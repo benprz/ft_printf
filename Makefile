@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/03 18:30:44 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/06 17:20:13 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -21,6 +21,8 @@ OBJ_DIR = obj/
 
 FT_PRINTF_DIR = ft_printf/
 SRC_FT_PRINTF =	ft_printf.c\
+				parse_format.c\
+				init_flags.c\
 				converters/convert_char.c\
 				converters/convert_int.c\
 				converters/convert_unsigned.c\
