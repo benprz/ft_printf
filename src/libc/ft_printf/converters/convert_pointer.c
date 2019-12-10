@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 12:23:12 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 17:45:05 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 18:02:35 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,5 +27,5 @@ char	*convert_pointer(va_list ap)
 		output = ft_strjoin("0x10", hex);
 		free(hex);
 	}
-    return (output);
+    return (ft_tolower_string(output));
 }
