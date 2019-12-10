@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_char.c                                   .::    .:/ .      .::   */
+/*   ft_putstr.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/28 19:19:43 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 09:54:18 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/10 10:22:34 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/10 11:07:21 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdlib.h>
+#include "libft.h"
 
-char	*convert_char(va_list ap)
+#include <unistd.h>
+
+void	ft_putstr(const char *str)
 {
-	char *output;
-
-	if ((output = malloc(sizeof(char) * 2)))
-	{
-		output[0] = (char)va_arg(ap, int);
-		output[1] = '\0';
-	}
-	return (output);
+	if (str)
+		write(1, str, ft_strlen(str));
 }

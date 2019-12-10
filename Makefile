@@ -6,14 +6,14 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 17:56:41 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/10 11:02:31 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic
+CFLAGS = -Wall -Wextra -Werror -pedantic
 
 INC_DIR = includes/
 SRC_DIR = src/
@@ -67,6 +67,7 @@ SRC =	ft_dtoa.c\
 		ft_putchar_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
+		ft_putstr.c\
 		ft_putstr_fd.c\
 		ft_skip_digit.c\
 		ft_split.c\

@@ -6,15 +6,16 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 18:12:40 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 17:15:21 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 10:14:24 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void	print_flags(t_args *arg)
 {
@@ -51,7 +52,7 @@ int		parse_arg(const char **format, va_list ap, int len)
 		{
 			if ((arg.output = g_conversion_functions[arg.type](ap)))
 			{
-				printf("%s", arg.output);
+				ft_putstr(arg.output);
 				free(arg.output);
 				return (len);
 			}
@@ -63,18 +64,21 @@ int		parse_arg(const char **format, va_list ap, int len)
 int		parse_format(const char *format, va_list ap)
 {
 	int len;
+	int len2;
 
 	len = 0;
 	while (*format && len != ERROR)
 	{
+		len2 = 1;
 		if (*format == '%')
 			len = parse_arg(&format, ap, len);
 		else
 		{
-			printf("%c", *format);
-			len++;
+			len2 = ft_strclen(format, '%');
+			write(1, format, len2);
+			len += len2;
 		}
-		format++;
+		format += len2;
 	}
 	return (len);
 }
