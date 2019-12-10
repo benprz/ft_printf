@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 14:08:31 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 16:09:13 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -61,8 +61,9 @@ extern char			*(*g_conversion_functions[_nbtypes])(va_list);
 extern const char	g_flags[_nbflags];
 
 int					ft_printf(const char *format, ...);
-int					parse_format(const char *format, va_list ap);
 int					init_flags(const char **format, t_args *arg, va_list ap);
+void				print_output(t_args *arg);
+int					check_type(const char c);
 
 char				*convert_char(va_list ap);
 char				*convert_int(va_list ap);

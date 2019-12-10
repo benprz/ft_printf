@@ -6,14 +6,14 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/10 11:02:31 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/10 15:53:08 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -pedantic
+CFLAGS = -Wall -Wextra -pedantic
 
 INC_DIR = includes/
 SRC_DIR = src/
@@ -21,8 +21,8 @@ OBJ_DIR = obj/
 
 FT_PRINTF_DIR = ft_printf/
 SRC_FT_PRINTF =	ft_printf.c\
-				parse_format.c\
 				init_flags.c\
+				more.c\
 				converters/convert_char.c\
 				converters/convert_int.c\
 				converters/convert_unsigned.c\
