@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 16:09:13 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 18:53:56 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,6 +28,7 @@ enum				e_types
 	_hexa_uppercase,
 	_string,
 	_pointer,
+	_percent,
 	_nbtypes
 };
 
@@ -72,5 +73,6 @@ char				*convert_hexa_lowercase(va_list ap);
 char				*convert_hexa_uppercase(va_list ap);
 char				*convert_string(va_list ap);
 char				*convert_pointer(va_list ap);
+char				*convert_percent();
 
 #endif

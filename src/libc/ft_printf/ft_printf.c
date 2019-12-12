@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 16:04:41 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 18:55:59 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 const char			g_conversion_types[_nbtypes] = {
 	'c',
@@ -24,7 +25,8 @@ const char			g_conversion_types[_nbtypes] = {
 	'x',
 	'X',
 	's',
-	'p'
+	'p',
+	'%'
 };
 
 char				*(*g_conversion_functions[_nbtypes])(va_list) = {
@@ -35,7 +37,8 @@ char				*(*g_conversion_functions[_nbtypes])(va_list) = {
 	convert_hexa_lowercase,
 	convert_hexa_uppercase,
 	convert_string,
-	convert_pointer
+	convert_pointer,
+	convert_percent
 };
 
 const char			g_flags[_nbflags] = {

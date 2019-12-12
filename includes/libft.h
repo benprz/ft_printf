@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 13:31:41 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 15:39:45 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 17:52:06 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,6 +53,7 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *s, char c);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 
+int		ft_putchar(const char c);
 void	ft_putchar_fd(const char c, const int fd);
 void	ft_putstr(const char *s, const int len);
 void	ft_putstr_fd(const char *s, const int fd);

@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   convert_percent.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/03 16:03:38 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 19:18:05 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 18:50:43 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 18:52:18 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
-#include <ctype.h>
-#include <stdarg.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <limits.h>
 
-int main()
+char	*convert_percent()
 {
-	printf("##############################\n");
-	printf("printf:    [%-015%]\n");
-	ft_printf("#############################\n");
-	ft_printf("ft_printf: [%-015%]\n");
-	return (0);
+	return (ft_strdup("%"));
 }

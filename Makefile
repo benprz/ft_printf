@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/10 15:53:08 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/11 18:53:29 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -29,7 +29,8 @@ SRC_FT_PRINTF =	ft_printf.c\
 				converters/convert_hexa_uppercase.c\
 				converters/convert_hexa_lowercase.c\
 				converters/convert_string.c\
-				converters/convert_pointer.c
+				converters/convert_pointer.c\
+				converters/convert_percent.c
 
 LIBC_DIR = libc/
 SRC_LIBC =	ft_atoi.c\
@@ -47,6 +48,7 @@ SRC_LIBC =	ft_atoi.c\
 			ft_memcpy.c\
 			ft_memmove.c\
 			ft_memset.c\
+			ft_putchar.c\
 			ft_strchr.c\
 			ft_strdup.c\
 			ft_strlcat.c\

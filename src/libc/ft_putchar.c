@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_putchar.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/03 16:03:38 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 19:18:05 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 17:46:14 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 17:52:20 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
-
-#include <ctype.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
-#include <limits.h>
 
-int main()
+int		ft_putchar(const char c)
 {
-	printf("##############################\n");
-	printf("printf:    [%-015%]\n");
-	ft_printf("#############################\n");
-	ft_printf("ft_printf: [%-015%]\n");
-	return (0);
+	write(1, &c, 1);
+	return (c);
 }
