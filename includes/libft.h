@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 13:31:41 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 17:52:06 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 11:06:16 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,6 +27,7 @@ int		ft_memcmp(const void *p1, const void *p2, const size_t len);
 void	*ft_calloc(size_t count, size_t size);
 void    ft_free_2d(void **array, size_t size);
 
+int		ft_abs(const int i);
 size_t	ft_strlen(const char *str);
 size_t	ft_strclen(const char *str, const int c);
 int		ft_isalpha(const int c);

@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_char.c                                   .::    .:/ .      .::   */
+/*   ft_abs.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/28 19:19:43 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 09:54:18 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/17 10:58:55 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/17 11:06:33 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdlib.h>
-
-char	*convert_char(va_list ap)
+int		ft_abs(const int i)
 {
-	char *output;
-
-	if ((output = malloc(sizeof(char) * 2)))
-	{
-		output[0] = (char)va_arg(ap, int);
-		output[1] = '\0';
-	}
-	return (output);
+	return (i < 0 ? -i : i);
 }

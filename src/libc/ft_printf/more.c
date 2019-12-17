@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 14:34:43 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 20:43:57 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 18:59:00 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,34 +25,39 @@ int		check_type(const char c)
 
 void	print_output(t_args *arg)
 {
-	int len;
+	int	output_len;
 
-	len = ft_strlen(arg->output);
-	if (arg->width > 0)
+	output_len = ft_strlen(arg->output);
+	if (arg->type == _char)
 	{
-		if (arg->type == _percent)
+		if (arg->flags.byte[_minus] || arg->width < 0)
 		{
-			while (--arg->width > 0)
-				ft_putchar(arg->flags.byte[_zero] == 1 ? '0' : ' ');
-			ft_putchar('%');
+			arg->width = ft_abs(arg->width);
+			ft_putchar(arg->output[0]);
+			while (arg->width-- - output_len > 0)
+				ft_putchar(' ');
+		}
+		else
+		{
+			while (arg->width-- - output_len > 0)
+				ft_putchar(' ');
+			ft_putchar(arg->output[0]);
 		}
 	}
-	if (arg->flags.byte[_precision])
+	else if (arg->type == _integer || arg->type == _digit)
 	{
-		if (arg->type == _digit || arg->type == _integer)
+		if (arg->flags.byte[_minus] || arg->width < 0)
 		{
-			while (arg->size-- - len > 0)
-				ft_putchar('0');
-			ft_putstr(arg->output, ft_strlen(arg->output));
+			arg->width = ft_abs(arg->width);
+			ft_putstr(arg->output, output_len);
+			while (arg->width-- - output_len > 0)
+				ft_putchar(' ');
 		}
-		if (arg->type == _string)
+		else
 		{
-			len = arg->size < len ? arg->size : len;
-			ft_putstr(arg->output, len);
+			while (arg->width-- - output_len > 0)
+				ft_putchar(arg->flags.byte[_zero] ? '0' : ' ');
+			ft_putstr(arg->output, output_len);
 		}
-	}
-	else
-	{
-		ft_putstr(arg->output, ft_strlen(arg->output));
 	}
 }

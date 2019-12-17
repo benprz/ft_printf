@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/17 09:55:05 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/17 19:05:42 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -23,17 +23,18 @@ FT_PRINTF_DIR = ft_printf/
 SRC_FT_PRINTF =	ft_printf.c\
 				init_flags.c\
 				more.c\
-				converters/convert_char.c\
-				converters/convert_int.c\
-				converters/convert_unsigned.c\
-				converters/convert_hexa_uppercase.c\
-				converters/convert_hexa_lowercase.c\
-				converters/convert_string.c\
-				converters/convert_pointer.c\
-				converters/convert_percent.c
+				types/char.c\
+				types/int.c\
+				types/convert_unsigned.c\
+				types/convert_hexa_uppercase.c\
+				types/convert_hexa_lowercase.c\
+				types/convert_string.c\
+				types/convert_pointer.c\
+				types/convert_percent.c
 
 LIBC_DIR = libc/
-SRC_LIBC =	ft_atoi.c\
+SRC_LIBC =	ft_abs.c\
+			ft_atoi.c\
 			ft_bzero.c\
 			ft_calloc.c\
 			ft_isalnum.c\

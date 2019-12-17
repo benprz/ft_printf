@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 18:53:56 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 19:46:46 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,6 +60,7 @@ typedef struct		s_args
 extern const char	g_conversion_types[_nbtypes];
 extern char			*(*g_conversion_functions[_nbtypes])(va_list);
 extern const char	g_flags[_nbflags];
+extern void			(*g_print_functions[_nbtypes])(t_args *);
 
 int					ft_printf(const char *format, ...);
 int					init_flags(const char **format, t_args *arg, va_list ap);
@@ -74,5 +75,10 @@ char				*convert_hexa_uppercase(va_list ap);
 char				*convert_string(va_list ap);
 char				*convert_pointer(va_list ap);
 char				*convert_percent();
+
+void				print_char(t_args *arg);
+void				print_int(t_args *arg);
+
+void				print_flags(t_args *arg);
 
 #endif
