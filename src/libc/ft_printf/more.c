@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 14:34:43 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 19:14:31 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 20:43:57 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,5 +50,9 @@ void	print_output(t_args *arg)
 			len = arg->size < len ? arg->size : len;
 			ft_putstr(arg->output, len);
 		}
+	}
+	else
+	{
+		ft_putstr(arg->output, ft_strlen(arg->output));
 	}
 }

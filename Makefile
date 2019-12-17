@@ -6,14 +6,14 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/11 18:53:29 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/17 09:55:05 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic
+CFLAGS = -Wall -Wextra -Wpedantic
 
 INC_DIR = includes/
 SRC_DIR = src/
@@ -103,6 +103,6 @@ fclean: clean
 	/bin/rm -f a.out
 
 debug: $(NAME)
-	gcc -Wall -Wextra -pedantic -I $(INC_DIR) main.c $(NAME) && ./a.out
+	gcc $(CFLAGS) -I $(INC_DIR) main.c $(NAME) && ./a.out
 
 re: fclean all
