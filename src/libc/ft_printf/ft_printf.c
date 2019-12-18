@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 19:48:38 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 17:24:44 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,13 +32,13 @@ const char			g_conversion_types[_nbtypes] = {
 char				*(*g_conversion_functions[_nbtypes])(va_list) = {
 	convert_char,
 	convert_int,
-	convert_int
+	convert_int,
 	//convert_unsigned,
 	//convert_hexa_lowercase,
 	//convert_hexa_uppercase,
 	//convert_string,
 	//convert_pointer,
-	//convert_percent
+	convert_percent
 };
 
 const char			g_flags[_nbflags] = {
@@ -49,7 +49,7 @@ const char			g_flags[_nbflags] = {
 	'*'
 };
 
-void				(*g_print_functions[_nbtypes])(t_args *) = {
+int				(*g_print_functions[_nbtypes])(t_args *) = {
 	print_char,
 	print_int,
 	print_int,
@@ -58,7 +58,7 @@ void				(*g_print_functions[_nbtypes])(t_args *) = {
 	//print_hexa_uppercase,
 	//print_string,
 	//print_pointer,
-	//print_percent
+	print_percent
 };
 
 int		parse_arg(const char **format, va_list ap, int len)
@@ -70,9 +70,11 @@ int		parse_arg(const char **format, va_list ap, int len)
 	{
 		if ((arg.type = check_type(**format)) != ERROR)
 		{
+			if (arg.type == 8)
+				arg.type = 3;
 			if ((arg.output = g_conversion_functions[arg.type](ap)))
 			{
-				g_print_functions[arg.type](&arg);
+				len += g_print_functions[arg.type](&arg);
 				free(arg.output);
 				return (len);
 			}
@@ -84,21 +86,21 @@ int		parse_arg(const char **format, va_list ap, int len)
 int		parse_format(const char *format, va_list ap)
 {
 	int len;
-	int len2;
+	int tmp;
 
 	len = 0;
 	while (*format && len != ERROR)
 	{
-		len2 = 1;
+		tmp = 1;
 		if (*format == '%')
 			len = parse_arg(&format, ap, len);
 		else
 		{
-			len2 = ft_strclen(format, '%');
-			write(1, format, len2);
-			len += len2;
+			tmp = ft_strclen(format, '%');
+			write(1, format, tmp);
+			len += tmp;
 		}
-		format += len2;
+		format += tmp;
 	}
 	return (len);
 }

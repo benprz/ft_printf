@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_char.c                                   .::    .:/ .      .::   */
+/*   char.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/28 19:19:43 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 19:48:36 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/18 16:09:47 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/18 16:57:55 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 char	*convert_char(va_list ap)
 {
@@ -28,19 +29,29 @@ char	*convert_char(va_list ap)
 	return (output);
 }
 
-void	print_char(t_args *arg)
+int		print_char(t_args *arg)
 {
+	int len;
+
+	len = 1;
 	if (arg->flags.byte[_minus] || arg->width < 0)
 	{
 		arg->width = ft_abs(arg->width);
 		ft_putchar(arg->output[0]);
 		while (--arg->width > 0)
+		{
 			ft_putchar(' ');
+			len++;
+		}
 	}
 	else
 	{
 		while (--arg->width > 0)
+		{
 			ft_putchar(' ');
+			len++;
+		}
 		ft_putchar(arg->output[0]);
 	}
+	return (len);
 }

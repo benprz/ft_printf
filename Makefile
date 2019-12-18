@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/17 19:05:42 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/18 16:38:01 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -30,7 +30,7 @@ SRC_FT_PRINTF =	ft_printf.c\
 				types/convert_hexa_lowercase.c\
 				types/convert_string.c\
 				types/convert_pointer.c\
-				types/convert_percent.c
+				types/percent.c
 
 LIBC_DIR = libc/
 SRC_LIBC =	ft_abs.c\
