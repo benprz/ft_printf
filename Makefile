@@ -6,14 +6,14 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/18 16:38:01 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/19 11:06:49 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Wpedantic
+CFLAGS = -Wall -Wextra
 
 INC_DIR = includes/
 SRC_DIR = src/
@@ -25,11 +25,10 @@ SRC_FT_PRINTF =	ft_printf.c\
 				more.c\
 				types/char.c\
 				types/int.c\
-				types/convert_unsigned.c\
-				types/convert_hexa_uppercase.c\
-				types/convert_hexa_lowercase.c\
-				types/convert_string.c\
-				types/convert_pointer.c\
+				types/unsigned.c\
+				types/hexa.c\
+				types/string.c\
+				types/pointer.c\
 				types/percent.c
 
 LIBC_DIR = libc/
@@ -70,6 +69,7 @@ SRC =	ft_dtoa.c\
 		ft_putchar_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
+		ft_putnstr.c\
 		ft_putstr.c\
 		ft_putstr_fd.c\
 		ft_skip_digit.c\

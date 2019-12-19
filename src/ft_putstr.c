@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 10:22:34 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 15:49:26 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 10:53:43 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,8 +15,12 @@
 
 #include <unistd.h>
 
-void	ft_putstr(const char *str, const int len)
+int		ft_putstr(const char *str)
 {
+	int ret;
+
+	ret = -1;
 	if (str)
-		write(1, str, len);
+		ret = write(1, str, ft_strlen(str));
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 16:10:34 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 17:25:45 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 11:14:14 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,6 @@ char	*convert_percent()
 
 int		print_percent(t_args *arg)
 {
-	ft_putstr(arg->output, 1);
+	ft_putstr(arg->output);
 	return (1);
 }

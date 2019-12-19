@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 17:24:44 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 13:35:39 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,11 +33,11 @@ char				*(*g_conversion_functions[_nbtypes])(va_list) = {
 	convert_char,
 	convert_int,
 	convert_int,
-	//convert_unsigned,
-	//convert_hexa_lowercase,
-	//convert_hexa_uppercase,
-	//convert_string,
-	//convert_pointer,
+	convert_unsigned,
+	convert_hexa_lowercase,
+	convert_hexa_uppercase,
+	convert_string,
+	convert_pointer,
 	convert_percent
 };
 
@@ -49,19 +49,19 @@ const char			g_flags[_nbflags] = {
 	'*'
 };
 
-int				(*g_print_functions[_nbtypes])(t_args *) = {
+int					(*g_print_functions[_nbtypes])(t_args *) = {
 	print_char,
 	print_int,
 	print_int,
-	//print_unsigned,
-	//print_hexa_lowercase,
-	//print_hexa_uppercase,
-	//print_string,
-	//print_pointer,
+	print_unsigned,
+	print_hexa,
+	print_hexa,
+	print_string,
+	print_pointer,
 	print_percent
 };
 
-int		parse_arg(const char **format, va_list ap, int len)
+static int			parse_arg(const char **format, va_list ap, int len)
 {
 	t_args	arg;
 
@@ -70,8 +70,6 @@ int		parse_arg(const char **format, va_list ap, int len)
 	{
 		if ((arg.type = check_type(**format)) != ERROR)
 		{
-			if (arg.type == 8)
-				arg.type = 3;
 			if ((arg.output = g_conversion_functions[arg.type](ap)))
 			{
 				len += g_print_functions[arg.type](&arg);
@@ -83,7 +81,7 @@ int		parse_arg(const char **format, va_list ap, int len)
 	return (ERROR);
 }
 
-int		parse_format(const char *format, va_list ap)
+static int			parse_format(const char *format, va_list ap)
 {
 	int len;
 	int tmp;
@@ -105,7 +103,7 @@ int		parse_format(const char *format, va_list ap)
 	return (len);
 }
 
-int		ft_printf(const char *format, ...)
+int					ft_printf(const char *format, ...)
 {
 	va_list ap;
 	int		len;

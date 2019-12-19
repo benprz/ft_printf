@@ -6,12 +6,14 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 17:26:19 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 14:19:33 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 15:46:25 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+#include <stdarg.h>
 
 void	get_precision_size(const char **format, t_args *arg)
 {
@@ -51,19 +53,19 @@ int		is_flag(const char **format, t_args *arg)
 
 int		init_flags(const char **format, t_args *arg, va_list ap)
 {
-	int i;
-
-	i = 0;
-	arg->flags.value = 0;
-	arg->width = 0;
-	arg->size = 0;
+	ft_bzero(arg, sizeof(arg));
 	while (is_flag(format, arg))
 		(*format)++;
-	if (arg->flags.byte[_wildcard_width] && arg->width)
-		return (ERROR);
 	if (arg->flags.byte[_wildcard_width])
 		arg->width = va_arg(ap, int);
 	if (arg->flags.byte[_wildcard_size])
 		arg->size = va_arg(ap, int);
+	if (arg->width < 0)
+	{
+		arg->width = ft_abs(arg->width);
+		arg->flags.byte[_minus] = 1;
+	}
+	if (arg->flags.byte[_zero] && arg->flags.byte[_minus])
+		arg->flags.byte[_zero] = 0;
 	return (1);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   int.c                                            .::    .:/ .      .::   */
+/*   convert_pointer.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/18 16:09:57 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 11:13:24 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/29 12:23:12 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/19 12:19:46 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,30 +14,46 @@
 #include "libft.h"
 
 #include <stdarg.h>
+#include <stdlib.h>
 
-char	*convert_int(va_list ap)
+char	*convert_pointer(va_list ap)
 {
-    return (ft_itoa(va_arg(ap, int)));
+	char	*hex;
+	char	*output;
+
+	output = NULL;
+	if ((hex = g_conversion_functions[_hexa_lowercase](ap)))
+	{
+		output = ft_strjoin("0x", hex);
+		free(hex);
+	}
+    return (ft_tolower_string(output));
 }
 
-int		print_int(t_args *arg)
+int		print_pointer(t_args *arg)
 {
-	int output_len;
 	int len;
+	int output_len;
 
-	len = 0;
 	output_len = ft_strlen(arg->output);
+	len = output_len;
 	if (arg->flags.byte[_minus] || arg->width < 0)
 	{
 		arg->width = ft_abs(arg->width);
 		ft_putstr(arg->output);
 		while (arg->width-- - output_len > 0)
+		{
 			ft_putchar(' ');
+			len++;
+		}
 	}
 	else
 	{
 		while (arg->width-- - output_len > 0)
-			ft_putchar(arg->flags.byte[_zero] ? '0' : ' ');
+		{
+			ft_putchar(' ');
+			len++;
+		}
 		ft_putstr(arg->output);
 	}
 	return (len);

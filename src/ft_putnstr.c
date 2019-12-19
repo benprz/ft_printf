@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_hexa_uppercase.c                         .::    .:/ .      .::   */
+/*   ft_putnstr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/06 19:09:42 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 17:34:08 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/19 10:38:19 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/19 10:54:00 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-#include <stdarg.h>
-
-char	*convert_hexa_uppercase(va_list ap)
+int		ft_putnstr(const char *str, const int len)
 {
-	return (ft_int2hex(va_arg(ap, unsigned int)));
+	int ret;
+
+	ret = -1;
+	if (str)
+		ret = write(1, str, len);
+	return (ret);
 }
