@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 13:35:39 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 18:34:24 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,7 +72,7 @@ static int			parse_arg(const char **format, va_list ap, int len)
 		{
 			if ((arg.output = g_conversion_functions[arg.type](ap)))
 			{
-				len += g_print_functions[arg.type](&arg);
+				len += print_output(&arg);
 				free(arg.output);
 				return (len);
 			}

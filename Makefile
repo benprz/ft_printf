@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/19 17:05:20 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/19 17:06:55 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -89,7 +89,7 @@ OBJ = $(SRC:%.c=$(OBJ_DIR)%.o)
 
 .PHONY: all clean fclean re debug
 
-all: $(NAME)
+all: $(NAME) debug
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INC_DIR)
 	@mkdir -p $(@D)
