@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/19 11:06:49 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/19 16:24:18 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -17,7 +17,8 @@ CFLAGS = -Wall -Wextra
 
 INC_DIR = includes/
 SRC_DIR = src/
-OBJ_DIR = obj/
+OBJ_DIR = .obj/
+DEBUG_DIR = .debug/
 
 FT_PRINTF_DIR = ft_printf/
 SRC_FT_PRINTF =	ft_printf.c\
@@ -97,13 +98,13 @@ $(NAME): $(OBJ)
 	ar rus $@ $?
 
 clean:
-	/bin/rm -rf obj/
+	/bin/rm -rf $(OBJ_DIR)
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	/bin/rm -f a.out
+	/bin/rm -f $(DEBUG_DIR)debug
 
 debug: $(NAME)
-	gcc $(CFLAGS) -I $(INC_DIR) main.c $(NAME) && ./a.out
+	gcc $(CFLAGS) -I ../$(INC_DIR) $(DEBUG_DIR)main.c -o $(DEBUG_DIR)debug $(NAME) && ./$(DEBUG_DIR)debug
 
 re: fclean all
