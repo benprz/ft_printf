@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/26 18:46:19 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/29 17:29:52 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,8 @@
 # define ERROR -1
 # include <stdarg.h>
 # include <stdint.h>
+
+# include <stdio.h>
 
 enum				e_types
 {

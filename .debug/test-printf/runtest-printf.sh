@@ -44,7 +44,7 @@ test()
 rm test-printf/result.log
 make all
 make bonus
-gcc -Wall -Wextra -Werror -Wformat=0 test-printf/test-main.c libftprintf.a -o test-printf/test.out
+gcc -Wall -Wextra -Werror -Wformat=0 test-printf/test-main.c ../libftprintf.a -o test-printf/test.out
 printf "\n\n${BLUE}[A - Tests without options]${NC}\n" && error=0
 test "$i - (\"\") : ${NC}" $i 
 test "$i - (\"1\") : ${NC}" $i 

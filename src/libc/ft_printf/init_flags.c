@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 17:26:19 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/26 20:07:22 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/29 17:41:20 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,7 @@ int		is_flag(const char **format, t_args *arg)
 
 int		init_flags(const char **format, t_args *arg, va_list ap)
 {
-	ft_bzero(arg, sizeof(arg));
+	ft_bzero(arg, sizeof(t_args));
 	while (is_flag(format, arg))
 		(*format)++;
 	if (arg->flags.byte[_wildcard_width])

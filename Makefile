@@ -6,14 +6,14 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/19 17:06:55 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/29 17:49:56 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Wpedantic
 
 INC_DIR = includes/
 SRC_DIR = src/

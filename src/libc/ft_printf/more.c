@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 14:34:43 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/26 20:50:41 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/29 19:24:32 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,11 +32,11 @@ int		print_output(t_args *arg)
 	{
 		ft_putchar(arg->output[0]);
 		len = 1;
-	} 
+	}
 	else if (arg->type == _string)
 	{
 		if (arg->output)
-			len = ft_putnstr(arg->output, arg->size);
+			len = ft_putnstr(arg->output, arg->output_len - arg->size);
 		else
 			len = ft_putstr("(null)");
 	}
@@ -104,14 +104,8 @@ int		print_arg(t_args *arg)
 	int len;
 
 	len = 0;
-
-	arg->size -= arg->output_len;
-	arg->width -= (arg->output_len + arg->size);
-
-	arg->size = ft_min_value(arg->size, 0);
-	arg->width = ft_min_value(arg->width, 0);
-
-	print_flags(arg);
+	arg->size = ft_min_value(arg->size - arg->output_len, 0);
+	arg->width = ft_min_value(arg->width - (arg->output_len + arg->size), 0);
 	if (arg->flags.byte[_minus])
 	{
 		len += print_precision(arg);
