@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 13:38:13 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 18:46:19 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,6 +55,7 @@ typedef struct		s_args
 	int				size;
 	int				type;
 	char			*output;
+	int				output_len;
 }					t_args;
 
 extern const char	g_conversion_types[_nbtypes];
@@ -64,7 +65,7 @@ extern int			(*g_print_functions[_nbtypes])(t_args *);
 
 int					ft_printf(const char *format, ...);
 int					init_flags(const char **format, t_args *arg, va_list ap);
-int					print_output(t_args *arg);
+int					print_arg(t_args *arg);
 int					check_type(const char c);
 
 char				*convert_char(va_list ap);

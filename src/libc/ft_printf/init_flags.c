@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 17:26:19 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 18:11:33 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 20:07:22 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,5 +67,7 @@ int		init_flags(const char **format, t_args *arg, va_list ap)
 		arg->width = ft_abs(arg->width);
 		arg->flags.byte[_minus] = 1;
 	}
+	if (arg->size < 0)
+		arg->size = 0;
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 18:34:24 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 18:45:55 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 const char			g_conversion_types[_nbtypes] = {
 	'c',
@@ -72,7 +73,8 @@ static int			parse_arg(const char **format, va_list ap, int len)
 		{
 			if ((arg.output = g_conversion_functions[arg.type](ap)))
 			{
-				len += print_output(&arg);
+				arg.output_len = ft_strlen(arg.output);
+				len += print_arg(&arg);
 				free(arg.output);
 				return (len);
 			}
@@ -114,8 +116,7 @@ int					ft_printf(const char *format, ...)
 	return (len);
 }
 
-#include <stdio.h>
-void	print_flags(t_args *arg)
+void				print_flags(t_args *arg)
 {
 	int i;
 
