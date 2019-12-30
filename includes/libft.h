@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 13:31:41 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 11:04:29 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/30 20:15:24 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,6 +38,8 @@ int		ft_isprint(const int c);
 int		ft_isspace(const int c);
 int		ft_toupper(const int c);
 int		ft_tolower(const int c);
+int		ft_min_value(const int n, const int min);
+int		ft_max_value(const int n, const int max);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
@@ -53,6 +55,7 @@ char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *s, char c);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+void	ft_replace_string(char **ptr, const char *str);
 
 int		ft_putchar(const char c);
 void	ft_putchar_fd(const char c, const int fd);

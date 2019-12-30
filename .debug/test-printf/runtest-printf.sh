@@ -44,7 +44,7 @@ test()
 rm test-printf/result.log
 make all
 make bonus
-gcc -Wall -Wextra -Werror -Wformat=0 test-printf/test-main.c ../libftprintf.a -o test-printf/test.out
+gcc -Wall -Wextra -Werror -Wformat=0 test-printf/test-main.c libftprintf.a -o test-printf/test.out
 printf "\n\n${BLUE}[A - Tests without options]${NC}\n" && error=0
 test "$i - (\"\") : ${NC}" $i 
 test "$i - (\"1\") : ${NC}" $i 
@@ -1815,4 +1815,4 @@ test "$i - (\"|%%+- +-0#+ -0 +0 -+ +0+ -+-+# 0+0-0+0-#0+ 0+ 15.6o| : %%%%+- +-0#
 test "$i - (\"|%%+- #0 - 0 + -0# - + - 0-+ - #+- 7o| : %%%%+- #0 - 0 + -0# - + - 0-+ - #+- 7o\n\", nbr) : ${NC}" $i 
 printf "\n\n${BLUE}[Z - MIX (good test for leaks)]${NC}\n" && error=0
 test "$i - (\"012%%c3456%%s789%%%%012%%i3456%%x789%%u012%%p456789%%e012%%f3456789%%g0123456789%%o01%%lc3456%%ls789%%n012%%c3456%%s789%%%%012%%i3456%%x789%%u012%%p456789%%e012%%f3456789%%g0123456789%%o01%%lc3456%%ls789%%n\", 'A', \"TEST\", 42, 0x42, 42, (void*)42, 4.2, -4.2, 4.101, 042, 35211, y, &z, 'A', \"TEST\", -21, -0x21, 0, (void*)0x101, 4.2, -4.2, 4.101, 042, 35211, y, &z) : ${NC}" $i 
-printf "\\n\\n${DARK_BLUE}Result [$success/$i]${NC}"
+printf "\n\n${DARK_BLUE}Result [$success/$i]${NC}"

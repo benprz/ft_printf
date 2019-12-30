@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   more.c                                           .::    .:/ .      .::   */
+/*   print_arg.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 14:34:43 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/29 19:24:32 by bperez      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/30 13:20:00 by bperez       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/30 20:54:47 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		check_type(const char c)
-{
-	int i;
-
-	i = 0;
-	while (i < _nbtypes && g_conversion_types[i] != c)
-		i++;
-	return (i < _nbtypes ? i : ERROR);
-}
+#include <stdlib.h>
 
 int		print_output(t_args *arg)
 {
@@ -33,10 +25,10 @@ int		print_output(t_args *arg)
 		ft_putchar(arg->output[0]);
 		len = 1;
 	}
-	else if (arg->type == _string)
+	else if (arg->type == _string && (!arg->output || arg->flags.byte[_precision]))
 	{
-		if (arg->output)
-			len = ft_putnstr(arg->output, arg->output_len - arg->size);
+		if (arg->flags.byte[_precision])
+			len = ft_putnstr(arg->output, ft_max_value(arg->size, arg->output_len));
 		else
 			len = ft_putstr("(null)");
 	}
@@ -45,11 +37,43 @@ int		print_output(t_args *arg)
 	return (len);
 }
 
+int		print_precision(t_args *arg)
+{
+	int len;
+
+	len = 0;
+	if (arg->neg)
+	{
+		arg->neg = 0;
+		ft_putchar('-');
+	}
+	if (arg->size > 0 && arg->type != _percent && arg->type != _string)
+	{
+			while (arg->size--)
+			{
+				ft_putchar('0');
+				len++;
+			}
+	}
+	else if (arg->flags.byte[_precision] && !arg->size && (arg->type == _int || arg->type == _digit))
+	{
+		if (arg->output[0] == '0')
+			return (len);
+	}
+	len += print_output(arg);
+	return (len);
+}
+
 int		print_width(t_args *arg)
 {
 	int len;
 
 	len = 0;
+	if (arg->neg)
+	{
+		arg->neg = 0;
+		ft_putchar('-');
+	}
 	if (arg->width > 0)
 	{
 		if (arg->flags.byte[_zero]\
@@ -74,38 +98,24 @@ int		print_width(t_args *arg)
 	return (len);
 }
 
-int		print_precision(t_args *arg)
-{
-	int len;
-
-	len = 0;
-	if (arg->size > 0)
-	{
-		if (arg->type != _string)
-		{
-			while (arg->size--)
-			{
-				ft_putchar('0');
-				len++;
-			}
-		}
-	}
-	len += print_output(arg);
-	return (len);
-}
-
-int		ft_min_value(int n, int min)
-{
-	return (n < min ? min : n);
-}
-
 int		print_arg(t_args *arg)
 {
-	int len;
-
+	int 	len;
+	
 	len = 0;
-	arg->size = ft_min_value(arg->size - arg->output_len, 0);
 	arg->width = ft_min_value(arg->width - (arg->output_len + arg->size), 0);
+	if ((arg->type == _digit || arg->type == _int) && arg->output[0] == '-')
+	{
+		if (arg->flags.byte[_zero] || arg->flags.byte[_precision])
+		{
+			ft_replace_string(&arg->output, ft_strdup(&arg->output[1]));
+			arg->neg = 1;
+			arg->output_len--;
+			len++;
+		}
+	}
+	if (arg->type != _string || (arg->output[0] != '0')
+		arg->size = ft_min_value(arg->size - arg->output_len, 0);
 	if (arg->flags.byte[_minus])
 	{
 		len += print_precision(arg);

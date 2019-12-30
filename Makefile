@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/29 17:49:56 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/30 20:15:25 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,7 +24,7 @@ DEBUG_NAME = debug
 FT_PRINTF_DIR = ft_printf/
 SRC_FT_PRINTF =	ft_printf.c\
 				init_flags.c\
-				more.c\
+				print_arg.c\
 				types/char.c\
 				types/int.c\
 				types/unsigned.c\
@@ -68,12 +68,15 @@ SRC =	ft_dtoa.c\
 		ft_free_2d.c\
 		ft_itoa.c\
 		ft_int2hex.c\
+		ft_max_value.c\
+		ft_min_value.c\
 		ft_putchar_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
 		ft_putnstr.c\
 		ft_putstr.c\
 		ft_putstr_fd.c\
+		ft_replace_string.c\
 		ft_skip_digit.c\
 		ft_split.c\
 		ft_strclen.c\

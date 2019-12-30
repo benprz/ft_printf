@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/29 16:32:48 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/30 19:55:34 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 
 const char			g_conversion_types[_nbtypes] = {
 	'c',
@@ -50,17 +49,15 @@ const char			g_flags[_nbflags] = {
 	'*'
 };
 
-int					(*g_print_functions[_nbtypes])(t_args *) = {
-	print_char,
-	print_int,
-	print_int,
-	print_unsigned,
-	print_hexa,
-	print_hexa,
-	print_string,
-	print_pointer,
-	print_percent
-};
+static int			check_type(const char c)
+{
+	int i;
+
+	i = 0;
+	while (i < _nbtypes && g_conversion_types[i] != c)
+		i++;
+	return (i < _nbtypes ? i : ERROR);
+}
 
 static int			parse_arg(const char **format, va_list ap, int len)
 {
@@ -127,5 +124,6 @@ void				print_flags(t_args *arg)
 		printf("<flags[%c] = %d>\n", g_flags[i], arg->flags.byte[i]);
 		i++;
 	}
-	printf("<width = %d>\n<size = %d>\n", arg->width, arg->size);
+	printf("<width = %d>\n<size = %d>\n<output_len = %d>\n", arg->width, arg->size, arg->output_len);
+	write(1, "[", 1);
 }
