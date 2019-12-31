@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 16:03:38 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/30 20:54:58 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/31 13:06:00 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,14 +28,14 @@ int main()
 	printf("##############################\n");
 	printf("printf:    [");
 
-	ret = printf("%.1d", 0);
+	ret = printf("%.2d", 0);
 
 	printf("]\n");
 	printf("ret = %d\n", ret);
 	ft_printf("#############################\n");
 	ft_printf("ft_printf: [");
 
-	ret = ft_printf("%.1d", 0);
+	ret = ft_printf("%.2d", 0);
 
 	ft_printf("]\n");
 	printf("ret = %d\n", ret);

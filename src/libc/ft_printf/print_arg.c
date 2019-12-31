@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/30 13:20:00 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/30 20:54:47 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/31 17:41:25 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -114,7 +114,7 @@ int		print_arg(t_args *arg)
 			len++;
 		}
 	}
-	if (arg->type != _string || (arg->output[0] != '0')
+	if (arg->type != _string)
 		arg->size = ft_min_value(arg->size - arg->output_len, 0);
 	if (arg->flags.byte[_minus])
 	{
