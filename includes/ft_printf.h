@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/30 18:16:47 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 14:29:19 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,7 +56,6 @@ typedef struct		s_args
 	int				width;
 	int				size;
 	int				type;
-	int				neg;
 	char			*output;
 	int				output_len;
 }					t_args;
