@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_pointer.c                                .::    .:/ .      .::   */
+/*   pointer.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 12:23:12 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 12:19:46 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 15:12:56 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ char	*convert_pointer(va_list ap)
 		output = ft_strjoin("0x", hex);
 		free(hex);
 	}
-    return (ft_tolower_string(output));
+	return (ft_tolower_string(output));
 }
 
 int		print_pointer(t_args *arg)

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 16:09:57 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 14:02:57 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 15:09:48 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,5 +17,5 @@
 
 char	*convert_int(va_list ap)
 {
-    return (ft_itoa(va_arg(ap, int)));
+	return (ft_itoa(va_arg(ap, int)));
 }

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 14:29:19 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 15:06:12 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,7 +44,7 @@ enum				e_flags
 	_nbflags
 };
 
-union 				u_flags
+union				u_flags
 {
 	uint64_t		value;
 	unsigned char	byte[_nbflags];

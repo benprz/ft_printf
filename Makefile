@@ -6,7 +6,7 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/08 13:42:48 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/10 15:17:09 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -109,6 +109,6 @@ fclean: clean
 	/bin/rm -f $(DEBUG_DIR)$(DEBUG_NAME)
 
 debug: $(NAME)
-	gcc $(CFLAGS) -I ../$(INC_DIR) $(DEBUG_DIR)main.c -o $(DEBUG_DIR)$(DEBUG_NAME) $(NAME) && ./$(DEBUG_DIR)$(DEBUG_NAME)
+	gcc $(CFLAGS) -I ../$(INC_DIR) $(DEBUG_DIR)tclaudel.c -o $(DEBUG_DIR)$(DEBUG_NAME) $(NAME) && ./$(DEBUG_DIR)$(DEBUG_NAME)
 
 re: fclean all

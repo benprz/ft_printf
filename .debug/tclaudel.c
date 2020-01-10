@@ -6,16 +6,18 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 10:15:11 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 12:00:47 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 14:35:59 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 #include <stdio.h>
 #include <limits.h>
 #include <time.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 void	print_error (size_t *i)
 {

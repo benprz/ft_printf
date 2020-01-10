@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 15:29:45 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 16:58:15 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 15:09:01 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,7 @@ short	count_chars(unsigned long n)
 
 char	*ft_int2hex(unsigned long n)
 {
-	char 	*str;
+	char	*str;
 	short	len;
 
 	len = count_chars(n);
