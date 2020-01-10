@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 19:17:56 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 15:06:12 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:22:08 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,10 +15,9 @@
 # define FT_PRINTF_H
 
 # define ERROR -1
+
 # include <stdarg.h>
 # include <stdint.h>
-
-# include <stdio.h>
 
 enum				e_types
 {

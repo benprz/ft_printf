@@ -6,14 +6,14 @@
 #    By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 13:38:41 by bperez       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/10 15:17:09 by bperez      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/10 16:35:07 by bperez      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Wpedantic
+CFLAGS = -Wall -Wextra -Werror
 
 INC_DIR = includes/
 SRC_DIR = src/
@@ -25,13 +25,13 @@ FT_PRINTF_DIR = ft_printf/
 SRC_FT_PRINTF =	ft_printf.c\
 				init_flags.c\
 				print_arg.c\
-				types/char.c\
-				types/int.c\
-				types/unsigned.c\
-				types/hexa.c\
-				types/string.c\
-				types/pointer.c\
-				types/percent.c
+				convert/char.c\
+				convert/int.c\
+				convert/unsigned.c\
+				convert/hexa.c\
+				convert/string.c\
+				convert/pointer.c\
+				convert/percent.c
 
 LIBC_DIR = libc/
 SRC_LIBC =	ft_abs.c\
@@ -92,7 +92,7 @@ OBJ = $(SRC:%.c=$(OBJ_DIR)%.o)
 
 .PHONY: all clean fclean re debug
 
-all: $(NAME) debug
+all: $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INC_DIR)
 	@mkdir -p $(@D)
@@ -109,6 +109,6 @@ fclean: clean
 	/bin/rm -f $(DEBUG_DIR)$(DEBUG_NAME)
 
 debug: $(NAME)
-	gcc $(CFLAGS) -I ../$(INC_DIR) $(DEBUG_DIR)tclaudel.c -o $(DEBUG_DIR)$(DEBUG_NAME) $(NAME) && ./$(DEBUG_DIR)$(DEBUG_NAME)
+	gcc $(CFLAGS) -I ../$(INC_DIR) $(DEBUG_DIR)main.c -o $(DEBUG_DIR)$(DEBUG_NAME) $(NAME) && ./$(DEBUG_DIR)$(DEBUG_NAME)
 
 re: fclean all

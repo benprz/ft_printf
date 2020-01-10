@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 13:31:41 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 15:06:38 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:17:10 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memchr(const void *ptr, const int c, const size_t len);
 int		ft_memcmp(const void *p1, const void *p2, const size_t len);
 void	*ft_calloc(size_t count, size_t size);
-void    ft_free_2d(void **array, size_t size);
+void	ft_free_2d(void **array, size_t size);
 
 int		ft_abs(const int i);
 size_t	ft_strlen(const char *str);

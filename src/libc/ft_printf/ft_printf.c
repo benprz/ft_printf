@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/15 20:12:48 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 13:36:03 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:21:21 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -111,19 +111,4 @@ int					ft_printf(const char *format, ...)
 	len = parse_format(format, ap);
 	va_end(ap);
 	return (len);
-}
-
-void				print_flags(t_args *arg)
-{
-	int i;
-
-	i = 0;
-	printf("\n");
-	while (i < _nbflags)
-	{
-		printf("<flags[%c] = %d>\n", g_flags[i], arg->flags.byte[i]);
-		i++;
-	}
-	printf("<width = %d>\n<size = %d>\n<output_len = %d>\n", arg->width, arg->size, arg->output_len);
-	write(1, "[", 1);
 }

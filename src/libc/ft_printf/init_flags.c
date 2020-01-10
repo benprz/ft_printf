@@ -6,14 +6,12 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 17:26:19 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 13:21:00 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:29:09 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdarg.h>
 
 void	get_precision_size(const char **format, t_args *arg)
 {
