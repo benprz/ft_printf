@@ -6,14 +6,12 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 16:10:34 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 15:10:09 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/11 12:07:00 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdlib.h>
 
 char	*convert_percent(void)
 {

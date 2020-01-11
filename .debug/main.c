@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 16:03:38 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 14:58:00 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/11 12:03:28 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,14 +28,14 @@ int main()
 	printf("##############################\n");
 	printf("printf:    [");
 
-	ret = printf("%.p", "bonjour");
+	ret = printf("%-10.p", NULL);
 
 	printf("]\n");
 	printf("ret = %d\n", ret);
 	ft_printf("#############################\n");
 	ft_printf("ft_printf: [");
 
-	ret = ft_printf("%.p", "bonjour");
+	ret = ft_printf("%-10.p", NULL);
 
 	ft_printf("]\n");
 	printf("ret = %d\n", ret);

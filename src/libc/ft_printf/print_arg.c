@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/30 13:20:00 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 15:16:27 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/11 12:04:22 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -71,8 +71,7 @@ void		handle_exceptions(t_args *arg)
 	if (arg->flags.byte[_precision] || arg->flags.byte[_minus])
 		arg->flags.byte[_zero] = 0;
 	if (arg->flags.byte[_precision] && !arg->size && arg->output[0] == '0')
-		if (arg->type != _pointer || arg->output_len == 3)
-			arg->output_len = 0;
+		arg->output_len = arg->output_len == 3 ? 2 : 0;
 	if (arg->type == _int || arg->type == _digit)
 	{
 		if (!arg->size && arg->width && arg->flags.byte[_zero])

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 16:09:47 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 11:18:18 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/11 12:05:28 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,6 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 char	*convert_char(va_list ap)
 {
