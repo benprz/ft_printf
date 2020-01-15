@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 12:23:12 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 16:32:16 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 17:09:49 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@ char	*convert_pointer(va_list ap)
 	char	*output;
 
 	output = NULL;
-	if ((hex = g_conversion_functions[_hexa_lowercase](ap)))
+	if ((hex = ft_int2hex(va_arg(ap, long))))
 	{
 		output = ft_strjoin("0x", hex);
 		free(hex);

@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/30 13:20:00 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/11 12:04:22 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 17:46:37 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -70,8 +70,10 @@ void		handle_exceptions(t_args *arg)
 	}
 	if (arg->flags.byte[_precision] || arg->flags.byte[_minus])
 		arg->flags.byte[_zero] = 0;
-	if (arg->flags.byte[_precision] && !arg->size && arg->output[0] == '0')
-		arg->output_len = arg->output_len == 3 ? 2 : 0;
+	if (arg->flags.byte[_precision] && !arg->size && arg->output[0] == '0' && arg->type != _pointer)
+		arg->output_len = 0;
+	if (arg->type == _pointer && arg->flags.byte[_precision] && !arg->size && arg->output_len == 3)
+		arg->output_len = 2;
 	if (arg->type == _int || arg->type == _digit)
 	{
 		if (!arg->size && arg->width && arg->flags.byte[_zero])
@@ -79,10 +81,6 @@ void		handle_exceptions(t_args *arg)
 		else if (arg->output[0] == '-')
 			arg->size = arg->size ? arg->size + 1 : 0;
 	}
-	if (arg->type == _percent || arg->size < 0)
-		arg->size = 0;
-	if (arg->type == _char)
-		arg->output_len = 1;
 }
 
 int			print_arg(t_args *arg)
@@ -91,6 +89,10 @@ int			print_arg(t_args *arg)
 
 	len = 0;
 	handle_exceptions(arg);
+	if (arg->type == _percent || arg->size < 0)
+		arg->size = 0;
+	if (arg->type == _char)
+		arg->output_len = 1;
 	arg->size = ft_min_value(arg->size - arg->output_len, 0);
 	arg->width = ft_min_value(arg->width - (arg->output_len + arg->size), 0);
 	if (arg->flags.byte[_minus])
