@@ -6,7 +6,7 @@
 /*   By: bperez <bperez@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/19 10:01:32 by bperez       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 16:32:21 by bperez      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 16:59:13 by bperez      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@
 
 char	*convert_hexa_uppercase(va_list ap)
 {
-	return (ft_int2hex(va_arg(ap, long)));
+	return (ft_int2hex(va_arg(ap, unsigned int)));
 }
 
 char	*convert_hexa_lowercase(va_list ap)
